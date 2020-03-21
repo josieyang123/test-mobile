@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="app_name_user">UserModule</string>
+    <string name="empty">empty</string>
+</resources>

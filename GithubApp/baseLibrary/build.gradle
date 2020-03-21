@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BaseUrl", rootProject.ext.url.debugUrl
+            buildConfigField "boolean", "Debug", "true"
+        }
+
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BaseUrl", rootProject.ext.url.releaseUrl
+            buildConfigField "boolean", "Debug", "false"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':resLibrary')
+    api rootProject.ext.dependencies.anko
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies.okhttpInterceptor
+    api rootProject.ext.dependencies.rxkotlin
+    api rootProject.ext.dependencies.rxandroid
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.converterGson
+    api rootProject.ext.dependencies.adapterRxjava
+    api rootProject.ext.dependencies.dagger
+    kapt rootProject.ext.dependencies.daggerCompiler
+    api rootProject.ext.dependencies.rxlife
+    api rootProject.ext.dependencies.rxlifeComponents
+    api rootProject.ext.dependencies.glide
+    api rootProject.ext.dependencies.circleImageview
+    api rootProject.ext.dependencies.multiStateView
+    api rootProject.ext.dependencies.arouterApi
+    kapt rootProject.ext.dependencies.arouterCompiler
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
