@@ -8,14 +8,6 @@ import android.util.Log
  */
 object LogUtils {
 
-    fun user(vararg s: String) {
-        val sb1 = StringBuffer()
-        for (s0 in s) {
-            sb1.append("====$s0")
-        }
-        Log.d("User>>>>", getHeadSuffix() + "====" + sb1.toString())
-    }
-
     fun base(vararg s: String) {
         val sb1 = StringBuffer()
         for (s0 in s) {
@@ -30,14 +22,6 @@ object LogUtils {
             sb1.append("====$s0")
         }
         Log.e("Error>>>>", getHeadSuffix() + "====" + sb1.toString())
-    }
-
-    fun d(vararg s: String) {
-        val sb1 = StringBuffer()
-        for (s0 in s) {
-            sb1.append("====$s0")
-        }
-        Log.d("d>>>>", getHeadSuffix() + "====" + sb1.toString())
     }
 
     //Thread.currentThread().getStackTrace()返回的是一个StackTraceElement数组，内容为调用函数堆栈，并且以调用层级关系保存。

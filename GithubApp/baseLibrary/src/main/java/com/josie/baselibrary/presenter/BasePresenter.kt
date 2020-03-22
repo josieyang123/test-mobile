@@ -1,6 +1,7 @@
 package com.josie.baselibrary.presenter
 
 import android.content.Context
+import com.josie.baselibrary.R
 import com.josie.baselibrary.presenter.view.BaseView
 import com.josie.baselibrary.utils.NetWorkUtils
 import com.trello.rxlifecycle.LifecycleProvider
@@ -22,7 +23,7 @@ open class BasePresenter<T : BaseView> {
         if (NetWorkUtils.isNetWorkAvailable(context)) {
             return true
         }
-        mView.onError("网络不可用")
+        mView.onError(context.resources.getString(R.string.net_error))
         return false
     }
 }

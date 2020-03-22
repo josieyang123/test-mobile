@@ -1,6 +1,8 @@
 package com.josie.baselibrary.rx
 
+import com.josie.baselibrary.R
 import com.josie.baselibrary.presenter.view.BaseView
+import com.josie.baselibrary.ui.BaseApplication
 import org.jetbrains.anko.AnkoLogger
 import rx.Subscriber
 
@@ -21,7 +23,7 @@ open class BaseSubscriber<T>(val baseView: BaseView) : Subscriber<T>(), AnkoLogg
         if (e is BaseException) {
             baseView.onError(e.msg)
         } else if (e is Exception) {
-            baseView.onError(e.toString())
+            baseView.onError(BaseApplication.context.resources.getString(R.string.request_failed))
         }
     }
 

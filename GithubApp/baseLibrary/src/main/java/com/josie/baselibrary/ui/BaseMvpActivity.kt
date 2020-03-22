@@ -2,6 +2,7 @@ package com.josie.baselibrary.ui
 
 import android.os.Bundle
 import com.alibaba.android.arouter.launcher.ARouter
+import com.josie.baselibrary.R
 import com.josie.baselibrary.injection.component.ActivityComponent
 import com.josie.baselibrary.injection.component.DaggerActivityComponent
 import com.josie.baselibrary.injection.module.ActivityModule
@@ -24,10 +25,16 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.statusBarColor=resources.getColor(R.color.colorPrimary)
         initActivityInjection()
         injectComponent()
         mLoadingDialog = ProgressLoading.create(this)
         ARouter.getInstance().inject(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        window.setBackgroundDrawable(null)
     }
 
     protected abstract fun injectComponent()

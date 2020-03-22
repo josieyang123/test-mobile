@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/item_user_bg"
+    android:layout_height="90dp"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_middle">
+
+    <ImageView
+        android:id="@+id/mAvatarItem"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_github"
+        android:layout_gravity="center_vertical"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="@dimen/padding_middle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/mNameItem"
+            style="@style/TextWrapMiddle"
+            android:textColor="@color/colorPrimary"
+            android:text="UserList" />
+        <TextView
+            android:id="@+id/mUrlItem"
+            android:layout_marginTop="@dimen/padding_middle"
+            style="@style/TextWrapSmall"
+            android:text="html" />
+    </LinearLayout>
+
+</LinearLayout>

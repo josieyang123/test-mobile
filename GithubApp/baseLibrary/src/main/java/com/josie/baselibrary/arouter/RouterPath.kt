@@ -6,14 +6,14 @@ package com.josie.baselibrary.arouter
  */
 object RouterPath {
     //宿主
-    class AppMain {
+    class App {
         companion object {
             const val PATH_MAIN = "/app/main"
         }
     }
 
     //用户模块
-    class UserModule {
+    class User {
         companion object {
             const val PATH_USER = "/userModule/list"
         }

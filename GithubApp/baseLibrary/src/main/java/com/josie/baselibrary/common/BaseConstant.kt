@@ -8,7 +8,7 @@ class BaseConstant {
     companion object {
         //SP表名
         const val SP_TABLE = "kotlin_github"
-        //Token Key
-        const val SP_KEY_TOKEN = "token"
+        //界面跳转传参
+        const val INTENT_USER_NAME = "intent_user_name"
     }
 }

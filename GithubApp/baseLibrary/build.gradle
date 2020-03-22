@@ -47,8 +47,8 @@ dependencies {
     api rootProject.ext.dependencies.rxlife
     api rootProject.ext.dependencies.rxlifeComponents
     api rootProject.ext.dependencies.glide
-    api rootProject.ext.dependencies.circleImageview
-    api rootProject.ext.dependencies.multiStateView
+    api rootProject.ext.dependencies.smartRefresh
+    api rootProject.ext.dependencies.smartRefreshHeader
     api rootProject.ext.dependencies.arouterApi
     kapt rootProject.ext.dependencies.arouterCompiler
 
