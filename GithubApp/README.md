@@ -33,6 +33,7 @@ the "test-mobile/GithubApp/Github.apk" is a packaged apk that you can install on
 ## 5.Problems
 
 -Getting data from the github API is sometimes problematic, so sometimes the APP can't get data,just show "Server exception, please try again".
+
 -The Score of user I got by github API,sometimes it's null, sometimes it's 1.0
 
 
