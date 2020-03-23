@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Github</string>
-    <string name="app_name_user">用户模块</string>
-    <string name="app_error">很抱歉,程序出现异常,即将退出</string>
-    <string name="net_error">网络异常</string>
-    <string name="param_error">参数异常</string>
-    <string name="please_input_search">请输入要搜索的用户名</string>
-    <string name="request_failed">服务异常，请重试</string>
-</resources>
