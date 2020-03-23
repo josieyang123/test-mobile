@@ -18,11 +18,16 @@
         android:paddingLeft="@dimen/padding_middle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:id="@+id/mNameItem"
             style="@style/TextWrapMiddle"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:ellipsize="none"
             android:textColor="@color/colorPrimary"
             android:text="UserList" />
+
         <TextView
             android:id="@+id/mUrlItem"
             android:layout_marginTop="@dimen/padding_middle"

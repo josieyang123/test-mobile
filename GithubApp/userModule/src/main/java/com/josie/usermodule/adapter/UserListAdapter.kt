@@ -27,7 +27,12 @@ class UserListAdapter(context: Context) : BaseRecyclerViewAdapter<UserInfo, User
         super.onBindViewHolder(holder, position)
         val model = dataList[position]
         holder.itemView.mAvatarItem.loadUrlRound(model.avatar_url)
-        holder.itemView.mNameItem.text = model.login + "  "+model.score
+        val max:Int=38
+        var name=model.login+ " "+model.score
+        if (name.length>max){
+            name=model.login.substring(0,max-4-model.score.toString().length)+"..."+model.score
+        }
+        holder.itemView.mNameItem.text = name
         holder.itemView.mUrlItem.text = model.html_url
     }
 

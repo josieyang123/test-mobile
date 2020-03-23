@@ -2,10 +2,10 @@ package com.josie.baselibrary.ui
 
 import android.app.Application
 import android.content.Context
-import com.alibaba.android.arouter.launcher.ARouter
 import com.josie.baselibrary.injection.component.AppComponent
 import com.josie.baselibrary.injection.component.DaggerAppComponent
 import com.josie.baselibrary.injection.module.AppModule
+import com.josie.baselibrary.utils.CrashHandler
 
 /**
  * @description : Base Application of App, do initialization work
@@ -20,10 +20,7 @@ open class BaseApplication: Application() {
         super.onCreate()
         initAppInjection()
         context = this
-
-        ARouter.openLog()
-        ARouter.openDebug()
-        ARouter.init(this)
+        CrashHandler.instance.init(context)
     }
 
     private fun initAppInjection() {

@@ -10,16 +10,12 @@ import java.util.*
  */
 object DateUtils {
 
-    fun string2String(time:String): String {
-        val utcTime = "2018-01-31T14:32:19Z"
+    fun date2Str(time:String): String {
         val df = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
         df.timeZone = TimeZone.getTimeZone("UTC")
-        val after = df.parse(utcTime)
-        System.out.println(after)
-
+        val after = df.parse(time)
         df.applyPattern("yyyy-MM-dd")
         df.timeZone = TimeZone.getDefault()
-        println(df.format(after))
         return df.format(after)
     }
 

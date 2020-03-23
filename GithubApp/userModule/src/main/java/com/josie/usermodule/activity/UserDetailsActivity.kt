@@ -68,7 +68,7 @@ class UserDetailsActivity : BaseMvpActivity<UserDetailsPresenter>(), UserDetails
     override fun onGetUserResult(result: UserInfo) {
         mAvatar.loadUrlRound(result.avatar_url)
         mLocation.text=result.location
-        mJoin.text="Joined at "+DateUtils.string2String(result.created_at)
+        mJoin.text="Joined at "+DateUtils.date2Str(result.created_at)
         mName.text=result.name
         mBio.text=result.bio
         mEmail.text=result.email

@@ -1,7 +1,6 @@
 package com.josie.baselibrary.ui
 
 import android.os.Bundle
-import com.alibaba.android.arouter.launcher.ARouter
 import com.josie.baselibrary.R
 import com.josie.baselibrary.injection.component.ActivityComponent
 import com.josie.baselibrary.injection.component.DaggerActivityComponent
@@ -29,7 +28,6 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
         initActivityInjection()
         injectComponent()
         mLoadingDialog = ProgressLoading.create(this)
-        ARouter.getInstance().inject(this)
     }
 
     override fun onStart() {

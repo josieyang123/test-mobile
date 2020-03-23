@@ -4,8 +4,6 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.view.View
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.josie.baselibrary.arouter.RouterPath
 import com.josie.baselibrary.common.BaseConstant
 import com.josie.baselibrary.common.onClick
 import com.josie.baselibrary.ui.BaseMvpActivity
@@ -35,7 +33,6 @@ import org.jetbrains.anko.toast
  * @description : The home page, display the users list, andr you can search users by username
  * created by josie at 2020/3/20
  */
-@Route(path = RouterPath.User.PATH_USER)
 class UserListActivity : BaseMvpActivity<UserListPresenter>(), UserListView {
 
     private lateinit var mUserListAdapter: UserListAdapter
@@ -45,6 +42,11 @@ class UserListActivity : BaseMvpActivity<UserListPresenter>(), UserListView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_list)
         initView()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        finishRefresh()
     }
 
     /**
@@ -141,6 +143,15 @@ class UserListActivity : BaseMvpActivity<UserListPresenter>(), UserListView {
     private fun searchUsers(name: String) {
         mPresenter.searchUsers(name, mSearchPage, 20)
     }
+    /**
+     * @description  close refresh
+     * @param
+     * @return
+     */
+    private fun finishRefresh() {
+        mRefreshLayout.finishRefresh()
+        mRefreshLayout.finishLoadMore()
+    }
 
     /**
      * @description  callback of searchUsers()
@@ -148,8 +159,7 @@ class UserListActivity : BaseMvpActivity<UserListPresenter>(), UserListView {
      * @return
      */
     override fun onSearchUsersResult(result: SearchUserResp) {
-        mRefreshLayout.finishRefresh()
-        mRefreshLayout.finishLoadMore()
+        finishRefresh()
         hideLoading()
         if (result != null ) {
             if (result.message!=null) {
@@ -171,8 +181,7 @@ class UserListActivity : BaseMvpActivity<UserListPresenter>(), UserListView {
      * @return
      */
     override fun onGetAllUsersResult(result: MutableList<UserInfo>) {
-        mRefreshLayout.finishRefresh()
-        mRefreshLayout.finishLoadMore()
+        finishRefresh()
         if (result != null && result.size > 0) {
             if (mUsersPage == 1) {
                 mUserListAdapter.setData(result)
@@ -190,7 +199,6 @@ class UserListActivity : BaseMvpActivity<UserListPresenter>(), UserListView {
      */
     override fun onError(text: String) {
         super.onError(text)
-        mRefreshLayout.finishRefresh()
-        mRefreshLayout.finishLoadMore()
+        finishRefresh()
     }
 }

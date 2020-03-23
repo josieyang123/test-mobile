@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Github</string>
     <string name="app_name_user">UserModule</string>
+    <string name="app_error">Something went wrong</string>
     <string name="net_error">Net error</string>
     <string name="param_error">Parameter error</string>
     <string name="please_input_search">Please input the username to search</string>
